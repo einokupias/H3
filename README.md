@@ -18,10 +18,16 @@ f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 
 ##f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 
+#Livetikun boottaus RAMiin automaattisesti
+
 Avasin tikkuni filen. KINGSTON, työpäydältä.
 Avasin grub.cfg tiedoston, joka löytyi polulta /boot/grub/grub.cfg
 Lisäsin "Try Xubuntu without installing" kohdan "quiet splash" perään toram, joka lataa tikun käyttiksen RAM-muistiin.
 Nyt Xubuntua voidaan käyttää, ilman että tikku on asetettu koneesee ja se ei myöskään tunnin/session jälkeen unohdu luokkaan.
+Toiminnon testaus seuraavassa kappaleessa. 
+`SPOILERS! Se toimi END OF SPOILERS`
+
+#Kieliasetuksien kanssa sähläystä (tämän jäkeisessä kappaleessa ratkaisu)
 
 Seuraavaksi lähdin etsimään setusta, jonne voisin lisätä suomenkielisen näppäimistön oletukseksi.
 Lupaava tiedosto löytyi polusta: preeseed/scli.seed
@@ -46,6 +52,8 @@ d-i clock-setup/utc boolean true
 `
 Näilläkään muutoksilla ei päästy maaliin.
 
+#Kieli ja kelloasetusten automatisointi
+
 Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisätä aiemmin muokkaamaani grub.cfg tiedostoon lisätä
 `locale=fi_FI console-setup/layoutcode=fi`
 
@@ -67,3 +75,5 @@ menuentry "Try Xubuntu without installing" {
 	linux	/casper/vmlinuz.efi  file=/cdrom/preseed/xubuntu.seed boot=casper quiet splash toram --- locale=fi_FI console-setup/layoutcode=fi
 	initrd	/casper/initrd.lz
   `
+Tällä muutoksella bootin jälkeen käytössäni oli pohjoismaalainen keyboard layout ja kellokin näytti oikeaa!
+Todisteena ääkköset.
