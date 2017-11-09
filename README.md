@@ -27,7 +27,7 @@ Nyt Xubuntua voidaan käyttää, ilman että tikku on asetettu koneesee ja se ei
 Toiminnon testaus seuraavassa kappaleessa. 
 `SPOILERS! Se toimi END OF SPOILERS`
 
-#Kieliasetuksien kanssa sähläystä (tämän jäkeisessä kappaleessa ratkaisu)
+### Kieliasetuksien kanssa sähläystä (tämän jäkeisessä kappaleessa ratkaisu)
 
 Seuraavaksi lähdin etsimään setusta, jonne voisin lisätä suomenkielisen näppäimistön oletukseksi.
 Lupaava tiedosto löytyi polusta: preeseed/scli.seed
@@ -57,7 +57,7 @@ d-i clock-setup/utc boolean true
 
 Näilläkään muutoksilla ei päästy maaliin.
 
-#Kieli ja kelloasetusten automatisointi
+### Kieli ja kelloasetusten automatisointi
 
 Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisätä aiemmin muokkaamaani grub.cfg tiedostoon lisätä
 
