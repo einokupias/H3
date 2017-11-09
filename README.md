@@ -18,7 +18,7 @@ f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 
 ## f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 
-# Livetikun boottaus RAMiin automaattisesti
+### Livetikun boottaus RAMiin automaattisesti
 
 Avasin tikkuni filen. KINGSTON, työpäydältä.
 Avasin grub.cfg tiedoston, joka löytyi polulta /boot/grub/grub.cfg
