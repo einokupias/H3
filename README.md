@@ -62,7 +62,7 @@ Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisät�
 
 Grub.cfg tiedoston alku kokonaisuudessaan siis:
 
-`
+```
 if loadfont /boot/grub/font.pf2 ; then
 	set gfxmode=auto
 	insmod efi_gop
@@ -78,7 +78,7 @@ menuentry "Try Xubuntu without installing" {
 	set gfxpayload=keep
 	linux	/casper/vmlinuz.efi  file=/cdrom/preseed/xubuntu.seed boot=casper quiet splash toram --- locale=fi_FI console-setup/layoutcode=fi
 	initrd	/casper/initrd.lz
-  `
-  
+```
+
 Tällä muutoksella bootin jälkeen käytössäni oli pohjoismaalainen keyboard layout ja kellokin näytti oikeaa!
 Todisteena ääkköset.
