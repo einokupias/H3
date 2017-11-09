@@ -40,7 +40,8 @@ Kieliasetuksen kanssa ei mennyt ihan yht' hyvin, kuten tekstist' joku tarkkasilm
 
 Kokeilin uusiksi xubuntu.seed tiedostoon (preeseed/xubuntu.seed)
 Lisäsin
-`
+
+```
 # Keyboard selection.
 # Disable automatic (interactive) keymap detection.
 d-i console-setup/ask_detect boolean false
@@ -49,7 +50,8 @@ d-i keyboard-configuration/xkb-keymap select fi
 ### Clock and time zone setup
 # Controls whether or not the hardware clock is set to UTC.
 d-i clock-setup/utc boolean true
-`
+```
+
 Näilläkään muutoksilla ei päästy maaliin.
 
 #Kieli ja kelloasetusten automatisointi
