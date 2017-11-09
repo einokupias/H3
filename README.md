@@ -27,3 +27,20 @@ Seuraavaksi lähdin etsimään setusta, jonne voisin lisätä suomenkielisen nä
 Lupaava tiedosto löytyi polusta: preeseed/scli.seed
 Lisäsin "# No language support packages." perään tekstin
 "d-i	keyboard-configuration/xkb-keymap select fi" https://ubuntuforums.org/showthread.php?t=2342872 löytämääni ohjetta mukaillen.
+
+Seuraavaksi buuttasin Linuxin uusiksi, jotta voisin n'hd' ovatko haluamani muutokset tulleet voimaan.
+Asennus ruudussa tarkistin @try linuxin@ alta painamalla @e@, l;ytyyk; toram sielt'. Ja l;ytyih'n se.
+Kieliasetuksen kanssa ei mennyt ihan yht' hyvin, kuten tekstist' joku tarkkasilm'inen on voinutkin huomata.
+
+Kokeilin uusiksi xubuntu.seed tiedostoon (preeseed/xubuntu.seed)
+Lisäsin
+""
+# Keyboard selection.
+# Disable automatic (interactive) keymap detection.
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/xkb-keymap select fi
+
+### Clock and time zone setup
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+""
