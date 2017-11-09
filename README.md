@@ -44,3 +44,26 @@ d-i keyboard-configuration/xkb-keymap select fi
 # Controls whether or not the hardware clock is set to UTC.
 d-i clock-setup/utc boolean true
 `
+Näilläkään muutoksilla ei päästy maaliin.
+
+Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisätä aiemmin muokkaamaani grub.cfg tiedostoon lisätä
+`locale=fi_FI console-setup/layoutcode=fi`
+
+Lopputulos:
+`
+if loadfont /boot/grub/font.pf2 ; then
+	set gfxmode=auto
+	insmod efi_gop
+	insmod efi_uga
+	insmod gfxterm
+	terminal_output gfxterm
+fi
+
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
+
+menuentry "Try Xubuntu without installing" {
+	set gfxpayload=keep
+	linux	/casper/vmlinuz.efi  file=/cdrom/preseed/xubuntu.seed boot=casper quiet splash toram --- locale=fi_FI console-setup/layoutcode=fi
+	initrd	/casper/initrd.lz
+  `
