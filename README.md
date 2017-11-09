@@ -86,4 +86,6 @@ menuentry "Try Xubuntu without installing" {
 Tällä muutoksella bootin jälkeen käytössäni oli pohjoismaalainen keyboard layout ja kellokin näytti oikeaa!
 Todisteena ääkköset.
 
+edit: Näin varoituksen sanana, tämä myös muutta käyttöjärjestelmää joiltain osin Suomeksi.
+
 Aikaa tehtävän tekemiseen kului 1h
