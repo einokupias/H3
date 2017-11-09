@@ -59,7 +59,7 @@ Näilläkään muutoksilla ei päästy maaliin.
 
 ### Kieli ja kelloasetusten automatisointi
 
-Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisätä aiemmin muokkaamaani grub.cfg tiedostoon lisätä
+Nyt kokeilin https://ubuntuforums.org/showthread.php?t=1718877 mukaillen lisätä aiemmin muokkaamaani grub.cfg tiedostoon
 
 `locale=fi_FI console-setup/layoutcode=fi`
 
@@ -85,3 +85,5 @@ menuentry "Try Xubuntu without installing" {
 
 Tällä muutoksella bootin jälkeen käytössäni oli pohjoismaalainen keyboard layout ja kellokin näytti oikeaa!
 Todisteena ääkköset.
+
+Aikaa tehtävän tekemiseen kului 1h
