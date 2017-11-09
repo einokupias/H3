@@ -31,8 +31,11 @@ Toiminnon testaus seuraavassa kappaleessa.
 
 Seuraavaksi lähdin etsimään setusta, jonne voisin lisätä suomenkielisen näppäimistön oletukseksi.
 Lupaava tiedosto löytyi polusta: preeseed/scli.seed
-Lisäsin `# No language support packages.` perään tekstin
-`d-i	keyboard-configuration/xkb-keymap select fi` https://ubuntuforums.org/showthread.php?t=2342872 löytämääni ohjetta mukaillen.
+Lisäsin 
+`# No language support packages.` 
+perään tekstin
+`d-i	keyboard-configuration/xkb-keymap select fi` 
+https://ubuntuforums.org/showthread.php?t=2342872 löytämääni ohjetta mukaillen.
 
 Seuraavaksi buuttasin Linuxin uusiksi, jotta voisin n'hd' ovatko haluamani muutokset tulleet voimaan.
 Asennus ruudussa tarkistin @try linuxin@ alta painamalla @e@, l;ytyyk; toram sielt'. Ja l;ytyih'n se.
