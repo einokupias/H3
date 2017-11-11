@@ -122,6 +122,7 @@ ja se toimi!
 
 Otin ssh yhteyden lähiverkossa sijaitsevaan läppäriini, jonka boottasin live-usbilta.
 Asensin puppetin
+
 `
 sudo apt-get -y install puppet
 `
@@ -135,6 +136,7 @@ sudoedit /etc/hosts
 `
 
 ja puppet conffiin
+
 `
 sudoedit /etc/puppet/puppet.conf
 `
@@ -142,7 +144,9 @@ sudoedit /etc/puppet/puppet.conf
 [agent]
 server = master.local
 `
+
 Käynnistin slave
+
 `
 sudo puppet agent --enable
 `
@@ -151,22 +155,50 @@ sudo puppet agent -t
 `
 
 Masterilla listasin odottavat slavet
+
 `sudo puppet cert --list`
+
 ja allekirjoitin xubuntu.lan
+
 `
 sudo puppet cert --sign xubuntu.lan
 `
 
 Hain tiedot masterilta uudestaan komennolla
+
 `s
 udo puppet agent -t
 `
 
 Puppet jotain mussutti unable...
+
 ``
 Warning: Unable to fetch my node definition, but the agent run will continue:
 Warning: undefined method `include?' for nil:NilClass
 ``
+
+Tästä huolimatta testi toimi:
+
+`cat /tmp/helloFromMaster`
+
+## Vituaaliorjat
+
+Tein tehtävän käyttäen avuksi http://terokarvinen.com/2017/multiple-virtual-computers-in-minutes-vagrant-multimachine ohjetta.
+
+Asensin Vagrantin
+
+`sudo apt-get -y install virtualbox vagrant`
+
+Virtualboxin kanssa ongelmia
+
+`● virtualbox.service - LSB: VirtualBox Linux kernel module
+   Loaded: loaded (/etc/init.d/virtualbox; bad; vendor preset: enabled)
+   Active: failed (Result: exit-code) since la 2017-11-11 11:28:12 UTC; 2ms ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 15938 ExecStart=/etc/init.d/virtualbox start (code=exited, status=1/FAILURE)
+`
+
+Googletuksella selvisi, että UEFI boot aiheuttaa tämän ongelman.
 
 
 
