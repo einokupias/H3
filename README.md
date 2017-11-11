@@ -21,80 +21,130 @@ f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 ### Masterin asetukset
 
 Asensin koneelleni puppetmasterin komennolla
-`sudo apt-get -y install puppetmaster`
+`
+sudo apt-get -y install puppetmaster
+`
 Asetin masterin asetukset http://terokarvinen.com/2012/puppetmaster-on-ubuntu-12-04 ohjeen mukaisesti.
 Pysäytin masterin ja uudistin ssl -avaimet komennoilla
-`sudo service puppetmaster stop`
-`sudo rm -r /var/lib/puppet/ssl`
-`sudo service puppetmaster start`
+`
+sudo service puppetmaster stop
+`
+`
+sudo rm -r /var/lib/puppet/ssl
+`
+`
+sudo service puppetmaster start
+`
 
 Lisäsin dns alt nimet
-`sudoedit /etc/puppet/puppet.conf`
+`sudoedit /etc/puppet/puppet.conf
+`
 kansioon
-`dns_alt_names = puppet, master, master.local`
+`
+dns_alt_names = puppet, master, master.local
+`
 
 Vaihdoin myös master koneen nimen vastaavaksi.
-`sudo hostnamectl set-hostname master`
+`
+sudo hostnamectl set-hostname master
+`
 ja kansioon
-`sudoedit /etc/hosts`
+`
+sudoedit /etc/hosts
+`
 lisäsin käyttäjän perään nimet: master ja master.local
 
 Käynnistin Avahi-daemonin uudestaan komennolla
-`sudo service avahi-daemon restart`
+`
+sudo service avahi-daemon restart
+`
 ja käynnistin terminaalin uudestaan jolloin master käyttäjä tuli näkyviin.
 
 Loin moduulin Hello, World!
 
-`cd /etc/puppet`
-`sudo mkdir -p /etc/manifests/ modules/helloworld/manifests/`
-`sudoedit modules/helloworld/manifests/ini.pp`
+`
+cd /etc/puppet
+`
+`
+sudo mkdir -p /etc/manifests/ modules/helloworld/manifests/
+`
+`
+sudoedit modules/helloworld/manifests/ini.pp
+`
 Tiedostoon kirjoitin seeuraavan:
-`class helloworld {
+`
+class helloworld {
 	file { '/tmp/helloFromMaster':
 		content => "See you at http://terokarvinen.com/tag/puppet\n"
 	}
 }`
 
 Lisäksi loin site.pp tiedoston
-`sudoedit manifests/site.pp`
+`
+sudoedit manifests/site.pp
+`
 ja sinne tekstin
-`include helloworld`
+`
+include helloworld
+
 
 Testasin moduulin ajamalla sen komennolla
-`sudo puppet apply -e 'class{'helloworld':}'`
+`
+sudo puppet apply -e 'class{'helloworld':}'
+`
 ja ajamalla tervehdyksen
-`cat /tmp/helloFromMaster`
+`
+cat /tmp/helloFromMaster
+`
 ja se toimi!
 
 ### Rauta slave
 
 Otin ssh yhteyden lähiverkossa sijaitsevaan läppäriini, jonka boottasin live-usbilta.
 Asensin puppetin
-`sudo apt-get -y install puppet`
+`
+sudo apt-get -y install puppet
+`
 
 Lisäsin masterin koneen iipparin orjalle
-`sudoedit /etc/hosts`
-`192.168.1.244	master.local`
+`
+sudoedit /etc/hosts
+`
+`
+192.168.1.244	master.local
+`
 
 ja puppet conffiin
-`sudoedit /etc/puppet/puppet.conf`
-`[agent]
+`
+sudoedit /etc/puppet/puppet.conf
+`
+`
+[agent]
 server = master.local
 `
 Käynnistin slave
-`sudo puppet agent --enable`
-`sudo puppet agent -t`
+`
+sudo puppet agent --enable
+`
+`
+sudo puppet agent -t
+`
 
 Masterilla listasin odottavat slavet
 `sudo puppet cert --list`
 ja allekirjoitin xubuntu.lan
-`sudo puppet cert --sign xubuntu.lan`
+`
+sudo puppet cert --sign xubuntu.lan
+`
 
 Hain tiedot masterilta uudestaan komennolla
-`udo puppet agent -t`
+`s
+udo puppet agent -t
+`
 
 Puppet jotain mussutti unable...
-``Warning: Unable to fetch my node definition, but the agent run will continue:
+``
+Warning: Unable to fetch my node definition, but the agent run will continue:
 Warning: undefined method `include?' for nil:NilClass
 ``
 
