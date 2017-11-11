@@ -218,6 +218,11 @@ Loin Vagrantfile
 
 ja lisäsin sinne ohjeen mukaiset asetukset
 
+F7
+ADvanced
+CPU Configuration
+Intel Virtualization technology -> Enabled
+
 `
 # http://TeroKarvinen.com/
 Vagrant.configure(2) do |config|
