@@ -218,11 +218,6 @@ Loin Vagrantfile
 
 ja lisäsin sinne ohjeen mukaiset asetukset
 
-F7
-ADvanced
-CPU Configuration
-Intel Virtualization technology -> Enabled
-
 `
 # http://TeroKarvinen.com/
 Vagrant.configure(2) do |config|
@@ -241,7 +236,28 @@ Tämän jälkeen annoin komennon
 
 `vagrant up`
 
-jolloin virtuaalikoneiden asennus lähti käyntiin
+jolloin virtuaalikoneiden asennus lähti käyntiin.
+
+asennus kuitenkin tyssäsi.
+
+`
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: ["startvm", "f763f996-c185-49f3-bef7-3c01bdc22a59", "--type", "headless"]
+
+Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)
+VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
+`
+
+Googlen
+
+F7
+ADvanced
+CPU Configuration
+Intel Virtualization technology -> Enabled
+
+Jälleen tuoreeella live-xubuntulla uusi yritys.
 
 
 
