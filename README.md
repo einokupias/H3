@@ -199,8 +199,15 @@ Virtualboxin kanssa ongelmia
 `
 
 Googletuksella selvisi, että UEFI boot aiheuttaa tämän ongelman.
+Boottasin koneen uudestaan.
+BIOSsissa muutin boot asetuksia (ASUS)
+F7 Advanced mode
+Boot
+Boot Device Control
+Legacy OPROM only
 
-
+Palasin BIOSsin etusivulle ja painoin F8 (Boot Menu)
+Valitsin tikkuni ilman UEFI vaihtoehtoa
 
 
 
