@@ -259,7 +259,15 @@ Intel Virtualization technology -> Enabled
 
 Jälleen tuoreeella live-xubuntulla uusi yritys.
 
+### Virtuaaliorjien asetukset
 
+Virtuaalikoneet kaatuivat minulla melkein saman tien.
+
+Esnimmäiselle yritin ajaa install puppet komennon, joka tyssäsi Unpacking kohtaan.
+Yrittäeäni kirjautua toiselle, sain viestin "no space left"
+
+Tämän jälkeen koko Xubuntu päätti irtisanoa sopimuksen irti, eikä vastannut enää millään lailla.
+Rapsaa, joka minulla oli tuossa koneessa auki, en pystynyt enää päivittämään (commit changes), jonka johdosta menetin jonkin verran sitä ja siksi tässä myöskin lyhyhennetty kertomus tästä.
 
 
 
