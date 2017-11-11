@@ -209,6 +209,35 @@ Legacy OPROM only
 Palasin BIOSsin etusivulle ja painoin F8 (Boot Menu)
 Valitsin tikkuni ilman UEFI vaihtoehtoa
 
+Kokeilin asennusta uudestaan (nyt siis tuoreella live-xubuntulla)
+Tällä kertaa asennus ei kiukutellut mitään.
+
+Loin Vagrantfile
+
+`nano Vagrantfile`
+
+ja lisäsin sinne ohjeen mukaiset asetukset
+
+`
+# http://TeroKarvinen.com/
+Vagrant.configure(2) do |config|
+ config.vm.box = "bento/ubuntu-16.04"
+
+ config.vm.define "slave01" do |slave01|
+   slave01.vm.hostname = "slave01"
+ end
+
+ config.vm.define "slave02" do |slave02|
+   slave02.vm.hostname = "slave02"
+ end
+end
+`
+Tämän jälkeen annoin komennon
+
+`vagrant up`
+
+jolloin virtuaalikoneiden asennus lähti käyntiin
+
 
 
 
