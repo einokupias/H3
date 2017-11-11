@@ -26,6 +26,7 @@ sudo apt-get -y install puppetmaster
 `
 Asetin masterin asetukset http://terokarvinen.com/2012/puppetmaster-on-ubuntu-12-04 ohjeen mukaisesti.
 Pysäytin masterin ja uudistin ssl -avaimet komennoilla
+
 `
 sudo service puppetmaster stop
 `
@@ -37,27 +38,36 @@ sudo service puppetmaster start
 `
 
 Lisäsin dns alt nimet
+
 `sudoedit /etc/puppet/puppet.conf
 `
+
 kansioon
+
 `
 dns_alt_names = puppet, master, master.local
 `
 
 Vaihdoin myös master koneen nimen vastaavaksi.
+
 `
 sudo hostnamectl set-hostname master
 `
+
 ja kansioon
+
 `
 sudoedit /etc/hosts
 `
+
 lisäsin käyttäjän perään nimet: master ja master.local
 
 Käynnistin Avahi-daemonin uudestaan komennolla
+
 `
 sudo service avahi-daemon restart
 `
+
 ja käynnistin terminaalin uudestaan jolloin master käyttäjä tuli näkyviin.
 
 Loin moduulin Hello, World!
@@ -71,7 +81,9 @@ sudo mkdir -p /etc/manifests/ modules/helloworld/manifests/
 `
 sudoedit modules/helloworld/manifests/ini.pp
 `
+
 Tiedostoon kirjoitin seeuraavan:
+
 `
 class helloworld {
 	file { '/tmp/helloFromMaster':
@@ -80,23 +92,31 @@ class helloworld {
 }`
 
 Lisäksi loin site.pp tiedoston
+
 `
 sudoedit manifests/site.pp
 `
+
 ja sinne tekstin
+
 `
 include helloworld
 
 
 Testasin moduulin ajamalla sen komennolla
 `
+
 sudo puppet apply -e 'class{'helloworld':}'
+
 `
 ja ajamalla tervehdyksen
 `
+
 cat /tmp/helloFromMaster
+
 `
 ja se toimi!
+`
 
 ### Rauta slave
 
