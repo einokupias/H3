@@ -249,11 +249,10 @@ Command: ["startvm", "f763f996-c185-49f3-bef7-3c01bdc22a59", "--type", "headless
 Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)
 VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
 `
+KOrjasin virtualisointiasetukset BIOSsissa seuraavin askelin
 
-Googlen
-
-F7
-ADvanced
+F7 (Advanced Options)
+Advanced
 CPU Configuration
 Intel Virtualization technology -> Enabled
 
@@ -268,6 +267,88 @@ Yrittäeäni kirjautua toiselle, sain viestin "no space left"
 
 Tämän jälkeen koko Xubuntu päätti irtisanoa sopimuksen irti, eikä vastannut enää millään lailla.
 Rapsaa, joka minulla oli tuossa koneessa auki, en pystynyt enää päivittämään (commit changes), jonka johdosta menetin jonkin verran sitä ja siksi tässä myöskin lyhyhennetty kertomus tästä.
+
+### Uusi yritys virtuaaliorjien kanssa
+
+Yritin asettaa virtuaali orjat uusiksi, tällä kertaa siten, että asennan virtuaalikoneet MacBook Pro läppäriini, jossa on Xubuntu 16.04 LTS käyttis.
+Puppetmasteria käitin pöytäkoneellani live-usbilla.
+Asetukset olivat täysin identtiset edellisen kanssa, joten hyppään suoraan kohtaan jossa sorvaan virtuaaliorjia.
+
+Otin ssh yhteyden slave01 komennolla
+
+`vagrant ssh slave01`
+
+Asensin puppetin.
+Konffasin puppet asetukset, sekä lisäsin master koneeni iipparin hosts -tiedostoon
+
+`sudoedit /etc/hosts
+192.168.1.244 master`
+
+`sudoedit /etc/puppet/puppet.conf
+
+[agent]
+server = master
+`
+Ajoin komennot
+
+`
+sudo puppet agent --enable
+sudo puppet agent -t
+`
+
+Master koneella listasin odottavat orjat ja signasin slave01.lan
+
+`
+sudo puppet cert --list
+sudo puppet cert --sign slave01.lan
+`
+Ajoin orjalla uudestaan komennon
+
+`
+sudo puppet agent -t
+`
+
+Tästä kuitenkin virheilmoitus:
+
+`
+Error: Could not request certificate: Server hostname 'master' did not match server certificate; expected one of xubuntu.lan, DNS:puppet, DNS:puppet.lan, DNS:xubuntu.lan
+`
+
+Lisäsin masterin puppet.conf tiedostoon dns_alt_names.. master.local
+
+`
+dns_alt_names = puppet, master, master.local, master.lan
+`
+
+Lisäsin myös orjalle hosts kansioon tuon master.lan
+
+Pysäytin molemmat, poistin ssl avaimet ja käynnistin uudestaan.
+
+`
+sudo rm -r /var/lib/puppet/ssl
+`
+
+Listasin ja signasin masterilla slave01 avaimen uudestaan.
+
+Orjalla komennolla
+
+`sudo puppet agent -t
+`
+
+sain helloworld -moduulin masterilta seuraavasta virheilmoituksesta huolimatta
+
+```
+Warning: Unable to fetch my node definition, but the agent run will continue:
+Warning: undefined method `include?' for nil:NilClass
+```
+
+konffasin seuraavaksi toisen virtuaaliorja (slave02) sekä rautaorjan tuttuun tapaan.
+
+Tämä sujui ongelmitta. Testasin vielä Hello, World moduulin toimivuuden molemmissa.
+
+## b) Kerää tietoa orjista: verkkokorttien MAC-numerot, virtuaalinen vai oikea… (Katso /var/lib/puppet/)
+
+
 
 
 
