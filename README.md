@@ -118,7 +118,7 @@ cat /tmp/helloFromMaster
 ja se toimi!
 `
 
-### Rauta slave
+### Rautaorja
 
 Otin ssh yhteyden lähiverkossa sijaitsevaan läppäriini, jonka boottasin live-usbilta.
 Asensin puppetin
@@ -266,7 +266,7 @@ Esnimmäiselle yritin ajaa install puppet komennon, joka tyssäsi Unpacking koht
 Yrittäeäni kirjautua toiselle, sain viestin "no space left"
 
 Tämän jälkeen koko Xubuntu päätti irtisanoa sopimuksen irti, eikä vastannut enää millään lailla.
-Rapsaa, joka minulla oli tuossa koneessa auki, en pystynyt enää päivittämään (commit changes), jonka johdosta menetin jonkin verran sitä ja siksi tässä myöskin lyhyhennetty kertomus tästä.
+Rapsaa, joka minulla oli tuossa koneessa auki, en pystynyt enää päivittämään (commit changes), jonka johdosta menetin jonkin verran sitä ja siksi tässä myöskin lyhyhennetty kertomus tapahtuneesta.
 
 ### Uusi yritys virtuaaliorjien kanssa
 
@@ -346,7 +346,30 @@ konffasin seuraavaksi toisen virtuaaliorja (slave02) sekä rautaorjan tuttuun ta
 
 Tämä sujui ongelmitta. Testasin vielä Hello, World moduulin toimivuuden molemmissa.
 
+Yhteensä tämän tehtävän tekemiseen minulla meni kahden päivän aikana n. 4h
+
 ## b) Kerää tietoa orjista: verkkokorttien MAC-numerot, virtuaalinen vai oikea… (Katso /var/lib/puppet/)
+
+Komento 
+
+`sudo cd /var/lib/puppet/
+`
+
+Ei toimi. Googlen mukaan siksi, että sudoa käytetään vain ajettaessa ohjelmia ja "cd" ei ole ohjelma.
+
+Ajoin komennon
+
+`sudo -i`
+
+jolloin minusta tuli root -käyttäjä ja pääsin cd -komennolla puppet kansioon.
+
+/var/lib/puppet/ kansiosta en näitä tietoja löytänyt.
+
+Tehtävän kestoon aikaa käytetty 1h
+
+## c) OrjaSkripti: Tee skripti, joka muuttaa koneen Puppet-orjaksi tietylle masterille. Voit katsoa mallia Tatun tai Eemelin ratkaisuista.
+
+Askartelin moduulin slavemaker https://github.com/einokupias/puppetslaves
 
 
 
