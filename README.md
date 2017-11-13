@@ -218,7 +218,7 @@ Loin Vagrantfile
 
 ja lisäsin sinne ohjeen mukaiset asetukset
 
-`
+```
 # http://TeroKarvinen.com/
 Vagrant.configure(2) do |config|
  config.vm.box = "bento/ubuntu-16.04"
@@ -231,7 +231,7 @@ Vagrant.configure(2) do |config|
    slave02.vm.hostname = "slave02"
  end
 end
-`
+```
 Tämän jälkeen annoin komennon
 
 `vagrant up`
