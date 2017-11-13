@@ -21,9 +21,11 @@ f) Vapaaehtoinen: Unelmien tikku. Tee unelmiesi USB-live-tikku.
 ### Masterin asetukset
 
 Asensin koneelleni puppetmasterin komennolla
+
 `
 sudo apt-get -y install puppetmaster
 `
+
 Asetin masterin asetukset http://terokarvinen.com/2012/puppetmaster-on-ubuntu-12-04 ohjeen mukaisesti.
 Pysäytin masterin ja uudistin ssl -avaimet komennoilla
 
@@ -72,15 +74,13 @@ ja käynnistin terminaalin uudestaan jolloin master käyttäjä tuli näkyviin.
 
 Loin moduulin Hello, World!
 
-`
+```
 cd /etc/puppet
-`
-`
+
 sudo mkdir -p /etc/manifests/ modules/helloworld/manifests/
-`
-`
+
 sudoedit modules/helloworld/manifests/ini.pp
-`
+```
 
 Tiedostoon kirjoitin seeuraavan:
 
@@ -240,7 +240,7 @@ jolloin virtuaalikoneiden asennus lähti käyntiin.
 
 asennus kuitenkin tyssäsi.
 
-`
+```
 There was an error while executing `VBoxManage`, a CLI used by Vagrant
 for controlling VirtualBox. The command and stderr is shown below.
 
@@ -248,7 +248,8 @@ Command: ["startvm", "f763f996-c185-49f3-bef7-3c01bdc22a59", "--type", "headless
 
 Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)
 VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
-`
+```
+
 KOrjasin virtualisointiasetukset BIOSsissa seuraavin askelin
 
 F7 (Advanced Options)
